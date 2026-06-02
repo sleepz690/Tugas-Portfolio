@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Tentang Saya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* About-page specific styles */
+        .about-hero {
+            padding: 140px 0 80px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-hero .hero-label {
+            margin-bottom: 1rem;
+        }
+
+        .progress-wrap {
+            margin-top: 2rem;
+        }
+
+        .progress-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.45rem;
+        }
+
+        .progress-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .progress-val {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--border);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 99px;
+        }
+
+        .cert-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .cert-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .cert-list li:last-child {
+            border-bottom: none;
+        }
+
+        .cert-icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 6px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(91,94,244,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .cert-text strong {
+            display: block;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 700px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======== NAVBAR ======== -->
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-logo">&lt;<span>Dev</span>/&gt;</span>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======== ABOUT HERO ======== -->
+    <div class="about-hero">
+        <div class="container">
+            <p class="hero-label">Halaman Tentang</p>
+            <h1 style="color: var(--white); max-width: 640px; margin-bottom: 1rem;">
+                Sedikit Cerita <br /><span style="color: var(--accent-light); font-style: italic;">Tentang Saya</span>
+            </h1>
+            <p style="max-width: 540px; font-size: 1rem;">
+                Mahasiswa Informatika yang sedang mendalami dunia web development, selalu penasaran
+                dengan teknologi baru, dan senang memecahkan masalah lewat kode.
+            </p>
+        </div>
+    </div>
+
+    <!-- ======== ABOUT MAIN ======== -->
+    <section class="section">
+        <div class="container">
+            <div class="about-grid">
+
+                <!-- Left: Photo placeholder -->
+                <div class="about-img-wrap">
+                    <div class="about-img-box">
+                        <img src="./image/person.png" alt="">
+                    </div>
+                </div>
+
+                <!-- Right: Bio & Info -->
+                <div class="about-content">
+                    <p class="section-label">Perkenalan</p>
+                    <h2>Raja Ramadhan Putra</h2>
+
+                    <p>
+                        Saya adalah mahasiswa semester awal di Program Studi Informatika yang
+                        tertarik pada pengembangan web, desain antarmuka, dan pemrograman berbasis data.
+                    </p>
+                    <p>
+                        Selama kuliah, saya aktif mengerjakan proyek-proyek akademik dan mandiri yang
+                        membantu saya memahami HTML, CSS, dan JavaScript secara mendalam. Saya percaya
+                        bahwa kode yang baik adalah kode yang mudah dibaca dan dipelihara.
+                    </p>
+
+                    <!-- Info grid -->
+                    <div class="about-info">
+                        <div class="info-item">
+                            <p class="info-label">Nama</p>
+                            <p class="info-value">Raja Ramadhan Putra</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Status</p>
+                            <p class="info-value">Mahasiswa Aktif</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Universitas</p>
+                            <p class="info-value">Universitas Islam Riau</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Program Studi</p>
+                            <p class="info-value">Informatika / Teknik Informatika</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Lokasi</p>
+                            <p class="info-value">Indonesia</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Email</p>
+                            <p class="info-value">student@example.com</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ======== SKILLS & CERTS ======== -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <p class="section-label">Kompetensi</p>
+            <h2 class="section-title">Kemampuan &amp; Pencapaian</h2>
+            <div class="section-line"></div>
+
+            <div class="two-col">
+
+                <!-- Skill Bars -->
+                <div>
+                    <h3 style="color: var(--white); margin-bottom: 0.25rem; font-family: var(--font-body); font-size: 1rem; font-weight: 600; letter-spacing: 0; text-transform: none;">Teknologi Utama</h3>
+                    <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">Tingkat pemahaman berdasarkan penggunaan aktif di proyek.</p>
+
+                    <div class="progress-wrap">
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">HTML5</span>
+                                <span class="progress-val">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">CSS3</span>
+                                <span class="progress-val">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">JavaScript</span>
+                                <span class="progress-val">65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">Git &amp; GitHub</span>
+                                <span class="progress-val">70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">Responsive Design</span>
+                                <span class="progress-val">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h3 style="color: var(--white); margin-bottom: 0.25rem; font-family: var(--font-body); font-size: 1rem; font-weight: 600; letter-spacing: 0; text-transform: none;">Sertifikat &amp; Penghargaan</h3>
+                    <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">Pencapaian yang diperoleh selama proses belajar.</p>
+
+                    <ul class="cert-list">
+                        <li>
+                            <div class="cert-icon">01</div>
+                            <div class="cert-text">
+                                <strong>Sertifikat HTML &amp; CSS Dasar</strong>
+                                Platform Belajar Online &mdash; 2026
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cert-icon">02</div>
+                            <div class="cert-text">
+                                <strong>Web Design Fundamentals</strong>
+                                W3Schools Certification &mdash; 2025
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cert-icon">03</div>
+                            <div class="cert-text">
+                                <strong>Git Version Control</strong>
+                                Dicoding / Belajar Mandiri &mdash; 2024
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cert-icon">04</div>
+                            <div class="cert-text">
+                                <strong>Tugas Besar</strong>
+                                Nilai A — Mata Kuliah Pemrograman Web &mdash; 2024
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ======== EXPERIENCE / TIMELINE ======== -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <p class="section-label">Riwayat</p>
+            <h2 class="section-title">Pengalaman &amp; Pendidikan</h2>
+            <div class="section-line"></div>
+
+            <ul class="exp-list">
+                <li>
+                    <div class="exp-dot"></div>
+                    <span class="exp-year">2026</span>
+                    <div class="exp-details">
+                        <h4>Tugas</h4>
+                        <p>Pengembangan aplikasi web menggunakan HTML, CSS, dan JavaScript sebagai studi kasus tugas akhir program studi.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="exp-dot"></div>
+                    <span class="exp-year">2026</span>
+                    <div class="exp-details">
+                        <h4>Proyek Kolaborasi Tim</h4>
+                        <p>Berkontribusi dalam proyek pengembangan website bersama anggota tim menggunakan Git untuk version control dan kolaborasi kode.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="exp-dot"></div>
+                    <span class="exp-year">2026</span>
+                    <div class="exp-details">
+                        <h4>Mata Kuliah Pemrograman Web</h4>
+                        <p>Belajar HTML, CSS, dan JavaScript dasar secara terstruktur. Mengerjakan proyek website responsif sebagai tugas akhir semester.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="exp-dot"></div>
+                    <span class="exp-year">2024</span>
+                    <div class="exp-details">
+                        <h4>Mulai Kuliah — Program Studi Informatika</h4>
+                        <p>Memulai perjalanan di dunia teknologi informasi, mempelajari dasar-dasar algoritma, logika pemrograman, dan matematika diskrit.</p>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-copy">&copy; 2026 Raja Ramadhan Putra</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
