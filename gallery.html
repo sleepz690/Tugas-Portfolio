@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Galeri Proyek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* Gallery-page specific styles */
+        .gallery-hero {
+            padding: 140px 0 64px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gallery-hero p.hero-label {
+            margin-bottom: 1rem;
+        }
+
+        /* Gradient accents per project category */
+        .grad-web  { background: linear-gradient(135deg, #0d0d22 0%, #1a1a3e 60%, #2a2060 100%); }
+        .grad-ui   { background: linear-gradient(135deg, #0d1a10 0%, #1a3020 60%, #0f4020 100%); }
+        .grad-data { background: linear-gradient(135deg, #1a0d0d 0%, #2e1a10 60%, #3e1a08 100%); }
+        .grad-game { background: linear-gradient(135deg, #0d0a1a 0%, #1a1040 60%, #2a0a40 100%); }
+
+        /* Modal / Lightbox */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            max-width: 580px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+            transition: all var(--transition);
+        }
+
+        .modal-close:hover {
+            border-color: var(--accent);
+            color: var(--white);
+        }
+
+        .modal-cat {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-light);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-family: var(--font-heading);
+        }
+
+        .modal-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .modal-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======== NAVBAR ======== -->
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-logo">&lt;<span>Dev</span>/&gt;</span>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======== GALLERY HERO ======== -->
+    <div class="gallery-hero">
+        <div class="container">
+            <p class="hero-label">Semua Karya</p>
+            <h1 style="color: var(--white); margin-bottom: 1rem;">
+                Galeri <span style="color: var(--accent-light); font-style: italic;">Proyek</span>
+            </h1>
+            <p style="max-width: 480px; font-size: 0.95rem;">
+                Kumpulan proyek yang telah saya kerjakan selama belajar web development,
+                mulai dari tugas kuliah hingga proyek mandiri.
+            </p>
+        </div>
+    </div>
+
+    <!-- ======== FILTER & GALLERY ======== -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Filter buttons -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="ui">UI Design</button>
+                <button class="filter-btn" data-filter="data">Data</button>
+                <button class="filter-btn" data-filter="game">Lainnya</button>
+            </div>
+
+            <!-- Gallery grid -->
+            <div class="gallery-grid" id="galleryGrid">
+
+                <!-- Item 1 — Featured -->
+                <div class="gallery-item featured" data-category="web"
+                     data-title="Website Profil Sekolah"
+                     data-cat="Web Development"
+                     data-desc="Website informatif untuk menampilkan profil, visi-misi, galeri kegiatan, dan informasi kontak sekolah. Dibuat dengan HTML, CSS murni, dan sedikit JavaScript untuk navigasi mobile."
+                     data-tags="HTML,CSS,JavaScript,Responsive">
+                    <div class="gallery-thumb grad-web">
+                        <div class="gallery-bg-number">01</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">Web Development</p>
+                            <p class="gallery-name">Website Profil Sekolah</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item" data-category="web"
+                     data-title="Halaman Registrasi"
+                     data-cat="Web Development"
+                     data-desc="Formulir pendaftaran pengguna dengan validasi input berbasis JavaScript. Menerapkan prinsip UX yang baik: label yang jelas, pesan error yang informatif, dan layout yang bersih."
+                     data-tags="HTML,CSS,Form,Validasi">
+                    <div class="gallery-thumb grad-web">
+                        <div class="gallery-bg-number">02</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">Web Development</p>
+                            <p class="gallery-name">Halaman Registrasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item" data-category="ui"
+                     data-title="Dashboard Admin"
+                     data-cat="UI Design"
+                     data-desc="Desain layout dashboard admin menggunakan CSS Grid dan Flexbox. Menampilkan statistik, tabel data, dan navigasi sidebar yang responsif untuk berbagai ukuran layar."
+                     data-tags="HTML,CSS,Grid,Flexbox">
+                    <div class="gallery-thumb grad-ui">
+                        <div class="gallery-bg-number">03</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">UI Design</p>
+                            <p class="gallery-name">Dashboard Admin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item" data-category="ui"
+                     data-title="Landing Page Produk"
+                     data-cat="UI Design"
+                     data-desc="Halaman promosi produk dengan struktur konten yang jelas, hierarki visual yang baik, dan call-to-action yang efektif. Dioptimalkan untuk tampilan mobile dan desktop."
+                     data-tags="HTML,CSS,Landing Page">
+                    <div class="gallery-thumb grad-ui">
+                        <div class="gallery-bg-number">04</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">UI Design</p>
+                            <p class="gallery-name">Landing Page Produk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 — Featured -->
+                <div class="gallery-item featured" data-category="data"
+                     data-title="Tabel Data Siswa"
+                     data-cat="Data Display"
+                     data-desc="Halaman tampilan tabel data siswa lengkap dengan fitur pencarian, pengurutan kolom, dan pagination sederhana menggunakan HTML tabel dan CSS styling yang rapi."
+                     data-tags="HTML,CSS,JavaScript,Table">
+                    <div class="gallery-thumb grad-data">
+                        <div class="gallery-bg-number">05</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">Data Display</p>
+                            <p class="gallery-name">Tabel Data Siswa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item" data-category="data"
+                     data-title="Infografis HTML"
+                     data-cat="Data Display"
+                     data-desc="Halaman infografis statis yang menampilkan data statistik menggunakan CSS murni untuk membuat chart bar dan pie chart sederhana tanpa library tambahan."
+                     data-tags="HTML,CSS,Chart,Infografis">
+                    <div class="gallery-thumb grad-data">
+                        <div class="gallery-bg-number">06</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">Data Display</p>
+                            <p class="gallery-name">Infografis HTML</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="gallery-item" data-category="web"
+                     data-title="Blog Sederhana"
+                     data-cat="Web Development"
+                     data-desc="Layout blog dengan halaman daftar artikel, halaman detail post, sidebar kategori, dan halaman kontak. Struktur HTML semantik dan CSS yang terorganisir."
+                     data-tags="HTML,CSS,Blog,Semantik">
+                    <div class="gallery-thumb grad-web">
+                        <div class="gallery-bg-number">07</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">Web Development</p>
+                            <p class="gallery-name">Blog Sederhana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="gallery-item" data-category="game"
+                     data-title="Mini Quiz Interaktif"
+                     data-cat="Lainnya"
+                     data-desc="Aplikasi kuis sederhana berbasis web menggunakan HTML, CSS, dan JavaScript. Menampilkan soal, pilihan jawaban, skor akhir, dan review jawaban benar/salah."
+                     data-tags="HTML,CSS,JavaScript,Quiz">
+                    <div class="gallery-thumb grad-game">
+                        <div class="gallery-bg-number">08</div>
+                        <div class="gallery-meta">
+                            <p class="gallery-cat">Lainnya</p>
+                            <p class="gallery-name">Mini Quiz Interaktif</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== MODAL ======== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <p class="modal-cat"  id="modalCat"></p>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-desc" id="modalDesc"></p>
+            <div class="modal-tags" id="modalTags"></div>
+            <div class="modal-links">
+                <a href="https://github.com" target="_blank" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.5rem 1.1rem;">GitHub Repo</a>
+                <a href="#" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.5rem 1.1rem;">Live Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-copy">&copy; 2026 Raja Ramadhan Putra</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======== JAVASCRIPT ======== -->
+    <script>
+        /* ---- Filter functionality ---- */
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var items      = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var filter = btn.getAttribute('data-filter');
+
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                items.forEach(function(item) {
+                    var cat = item.getAttribute('data-category');
+                    if (filter === 'all' || cat === filter) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        /* ---- Modal (lightbox) functionality ---- */
+        var overlay    = document.getElementById('modalOverlay');
+        var closeBtn   = document.getElementById('modalClose');
+        var modalCat   = document.getElementById('modalCat');
+        var modalTitle = document.getElementById('modalTitle');
+        var modalDesc  = document.getElementById('modalDesc');
+        var modalTags  = document.getElementById('modalTags');
+
+        items.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var title = item.getAttribute('data-title');
+                var cat   = item.getAttribute('data-cat');
+                var desc  = item.getAttribute('data-desc');
+                var tags  = item.getAttribute('data-tags').split(',');
+
+                modalCat.textContent   = cat;
+                modalTitle.textContent = title;
+                modalDesc.textContent  = desc;
+
+                modalTags.innerHTML = '';
+                tags.forEach(function(tag) {
+                    var span = document.createElement('span');
+                    span.className   = 'tag';
+                    span.textContent = tag.trim();
+                    modalTags.appendChild(span);
+                });
+
+                overlay.classList.add('open');
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            overlay.classList.remove('open');
+        });
+
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                overlay.classList.remove('open');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                overlay.classList.remove('open');
+            }
+        });
+    </script>
+
+</body>
+</html>
