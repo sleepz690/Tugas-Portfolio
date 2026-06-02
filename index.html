@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Beranda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ======== NAVBAR ======== -->
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-logo">&lt;<span>Dev</span>/&gt;</span>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======== HERO ======== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-label">Selamat Datang di Portfolio Saya</p>
+                <h1 class="hero-title">
+                    Halo, Saya <br />
+                    <span class="highlight">Web Developer</span>
+                </h1>
+                <p class="hero-desc">
+                    Mahasiswa Informatika yang bersemangat membangun antarmuka web yang
+                    fungsional, bersih, dan berorientasi pada pengguna. Saya mengerjakan
+                    proyek dari frontend hingga backend dengan pendekatan yang terstruktur.
+                </p>
+                <div class="hero-actions">
+                    <a href="gallery.html" class="btn btn-primary">Lihat Proyek</a>
+                    <a href="about.html"   class="btn btn-secondary">Tentang Saya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== STATS ======== -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <p class="stat-number">10<span>+</span></p>
+                    <p class="stat-label">Proyek Selesai</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">2<span>+</span></p>
+                    <p class="stat-label">Tahun Belajar</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">5<span>+</span></p>
+                    <p class="stat-label">Teknologi</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">1</p>
+                    <p class="stat-label">Universitas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FEATURED PROJECTS ======== -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label">Karya Terbaru</p>
+            <h2 class="section-title">Proyek Pilihan</h2>
+            <div class="section-line"></div>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-thumb-placeholder">PROJECT_01.jpg</div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <p class="project-title">Website Profil Sekolah</p>
+                        <p class="project-desc">
+                            Website informatif untuk menampilkan profil, visi-misi, dan kegiatan sekolah
+                            dengan tampilan yang responsif dan mudah digunakan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-thumb-placeholder">PROJECT_02.jpg</div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Form</span>
+                        </div>
+                        <p class="project-title">Halaman Registrasi</p>
+                        <p class="project-desc">
+                            Formulir pendaftaran pengguna lengkap dengan validasi input, desain bersih,
+                            dan antarmuka yang ramah pengguna.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-thumb-placeholder">PROJECT_03.jpg</div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Layout</span>
+                        </div>
+                        <p class="project-title">Landing Page Produk</p>
+                        <p class="project-desc">
+                            Halaman promosi produk dengan struktur konten yang jelas, hierarki visual
+                            yang baik, dan call-to-action yang efektif.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align:center; margin-top:2.5rem;">
+                <a href="gallery.html" class="btn btn-secondary">Lihat Semua Proyek &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== SKILLS ======== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <p class="section-label">Kemampuan</p>
+            <h2 class="section-title">Teknologi yang Saya Gunakan</h2>
+            <div class="section-line"></div>
+
+            <div class="skills-grid">
+                <div class="skill-item">HTML5</div>
+                <div class="skill-item">CSS3</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Git &amp; GitHub</div>
+                <div class="skill-item">Responsive Design</div>
+                <div class="skill-item">Flexbox</div>
+                <div class="skill-item">CSS Grid</div>
+                <div class="skill-item">VS Code</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== CTA ======== -->
+    <section class="section">
+        <div class="container" style="text-align: center; max-width: 580px;">
+            <p class="section-label" style="justify-content: center; display: block;">Kontak</p>
+            <h2 class="section-title">Tertarik Berkolaborasi?</h2>
+            <p style="font-size: 0.95rem; margin-bottom: 2rem;">
+                Saya terbuka untuk diskusi proyek, kolaborasi tugas, atau sekadar berbagi
+                pengalaman seputar web development.
+            </p>
+            <a href="mailto:student@example.com" class="btn btn-primary">Kirim Email</a>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-copy">&copy; 2026 Raja Ramadhan Putra</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
